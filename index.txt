@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Quiz for Sohil 💖</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fce4ec;
+            color: #333;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .quiz-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            margin: 0 auto;
+            max-width: 500px;
+        }
+        .question {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .button {
+            background-color: #ff4081;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1.2em;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #e040fb;
+        }
+        .gif-container {
+            margin-top: 20px;
+        }
+        #cover-gif {
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quiz-container" id="quiz-container">
+        <div id="cover-page">
+            <img src="https://media1.giphy.com/media/5dUllWbKVlaqmMTvHb/giphy.gif?cid=6c09b9525kpg2bz3vxfzkdvhaqub5oz9dmtnn3pjm0n023yd&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g" alt="Cover GIF" id="cover-gif"> <!-- Cover page GIF -->
+            <div class="question" id="question">Valentine's Day Questions for Sohil 💗</div>
+            <div class="buttons" id="buttons">
+                <button class="button" onclick="startQuiz()">Start Quiz</button> <!-- Start Quiz Button -->
+            </div>
+        </div>
+        <div class="gif-container" id="gif-container"></div>
+    </div>
+
+    <script>
+        const questionElement = document.getElementById('question');
+        const buttonsElement = document.getElementById('buttons');
+        const gifContainer = document.getElementById('gif-container');
+        const coverPage = document.getElementById('cover-page');
+
+        const questions = [
+            {
+                question: "Valentine's Day Questions for my bb Sohil 💗",
+                answers: ["Start Quiz"]
+            },
+            {
+                question: "Do you like me ^.^?",
+                answers: ["Yes a lot", "Not that much"],
+                gifs: {
+                    "Yes a lot": "https://media1.giphy.com/media/3NnnS6Q8hVPZC/giphy.gif?cid=6c09b952pxiueyz57xncsnhjuric2qm0vexb5wvsj1rflt34&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g",
+                    "Not that much": "https://media4.giphy.com/media/KOYptxBqx90uW8Z88r/giphy.gif?cid=6c09b952yva3wpie3lc2skis3gai5eorhzsgizo6zb73yxtj&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g"
+                }
+            },
+            {
+                question: "Do I annoy you?",
+                answers: ["Yes, you're a headache", "Of course not, you are my bb"],
+                gifs: {
+                    "Yes, you're a headache": "https://media2.giphy.com/media/zHGXhFJCVCbD2/giphy.gif?cid=6c09b9526brhtdied607s6hqpejzjadsrhhx2s7zdc59yom6&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g",
+                    "Of course not, you are my bb": "https://media2.giphy.com/media/dwe0zLhdweo8/giphy.gif?cid=6c09b952f90tszvxxbqita1nztljtpo6dyeeety8a5xfv66p&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g"
+                }
+            },
+            {
+                question: "I've been wanting to ask you this,...",
+                answers: ["Continue"],
+                gifs: {
+                    "Continue": "https://media1.giphy.com/media/D1LTiEmjcadFiiTmay/giphy.gif?cid=6c09b9520xzfkbkn3x4edix58p3o3n1iernrmfw15jbjxst3&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g"
+                }
+            },
+            {
+                question: "But I am too shy to ask... but I will be brave...",
+                answers: ["Continue"],
+                gifs: {
+                    "Continue": "https://media1.giphy.com/media/gakN0of9tttb9Q8nnA/giphy.gif?cid=6c09b952duffpqpcjdtxv37t6uwxxytflnral3spf8nx5css&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g"
+                }
+            },
+            {
+                question: "Sohil, will you.... be my.....?",
+                answers: ["Yes", "No"],
+                gifs: {
+                    "Yes": "https://giphy.com/gifs/iQiyiOfficial-anime-ranking-of-kings-ousama-m5N9gsl3eE1C8HbPVF",
+                    "No": "https://media3.giphy.com/media/FWAcpJsFT9mvrv0e7a/giphy.gif?cid=6c09b952hsuybr0omzqx55qt3k8mvbaqnqisgvymwoggmnwn&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g"
+                }
+            },
+            {
+                question: "Valentine?",
+                answers: ["Yes", "No"],
+                gifs: {
+                    "Yes": "https://media1.giphy.com/media/Nii2FhtCqITxT6uHnE/giphy.gif?cid=6c09b952cbvbkn73ih8w04s2vcpi3jzmyyptedead0glhk06&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g",
+                    "No": "https://media4.giphy.com/media/NRO0LLcPb4jKcU375F/giphy.gif?cid=6c09b952xoqyiv2eahazqrobi7uo06cog7ahj731mqp98ple&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g"
+                }
+            }
+        ];
+
+        let currentQuestion = 0;
+
+        function startQuiz() {
+            coverPage.style.display = "none"; // Hide cover page after clicking 'Start Quiz'
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const question = questions[currentQuestion];
+            questionElement.innerText = question.question;
+
+            buttonsElement.innerHTML = '';
+            question.answers.forEach(answer => {
+                const button = document.createElement('button');
+                button.className = 'button';
+                button.innerText = answer;
+                button.onclick = () => handleAnswer(answer);
+                buttonsElement.appendChild(button);
+            });
+
+            gifContainer.innerHTML = ''; // Reset GIF container
+        }
+
+        function handleAnswer(answer) {
+            if (questions[currentQuestion].gifs && questions[currentQuestion].gifs[answer]) {
+                const gifUrl = questions[currentQuestion].gifs[answer];
+                gifContainer.innerHTML = `<img src="${gifUrl}" alt="Gif" style="max-width: 100%; height: auto;">`;
+            }
+
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                setTimeout(showQuestion, 1000);
+            } else {
+                setTimeout(() => {
+                    questionElement.innerHTML = "Thank you for completing the quiz, Sohil! 💖"; // Display a thank you message
+                    buttonsElement.innerHTML = ''; // Remove buttons after the quiz ends
+                    gifContainer.innerHTML = ''; // Remove GIFs
+                }, 1000);
+            }
+        }
+
+    </script>
+
+</body>
+</html>
